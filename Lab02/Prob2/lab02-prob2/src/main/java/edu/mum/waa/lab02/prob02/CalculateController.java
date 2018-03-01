@@ -23,7 +23,7 @@ public class CalculateController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String num1, num2, num3, num4, sum = "", multpliy = "";
+		String num1, num2, num3, num4, sum = "", multiply = "";
 		num1 = req.getParameter("num1");
 		num2 = req.getParameter("num2");
 		num3 = req.getParameter("num3");
@@ -40,7 +40,7 @@ public class CalculateController extends HttpServlet{
 		try {
 			int a3 = Integer.parseInt(num3);
 			int a4 = Integer.parseInt(num4);
-			multpliy = String.valueOf(a3 * a4);
+			multiply = String.valueOf(a3 * a4);
 		} catch(NumberFormatException e) {
 			
 		}
@@ -50,7 +50,7 @@ public class CalculateController extends HttpServlet{
 		req.setAttribute("num3", num3);
 		req.setAttribute("num4", num4);
 		req.setAttribute("sum", sum);
-		req.setAttribute("multpliy", multpliy);
+		req.setAttribute("multiply", multiply);
 		rd.forward(req, resp);
 	}
 }
