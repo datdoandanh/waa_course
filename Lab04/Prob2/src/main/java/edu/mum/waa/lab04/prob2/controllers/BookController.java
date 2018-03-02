@@ -41,13 +41,11 @@ public class BookController {
 	@RequestMapping(value="/books/{id}", method=RequestMethod.POST)
 	public String update(@PathVariable("id") int id, @Valid Book book, BindingResult result) {
 		String view = "redirect:/books";
-//		if (!result.hasErrors()) {
-//			bookDao.update(id, book);
-//		} else {
-//			return "redirect:/books/" + id;
-//		}
-		bookDao.update(id, book);
-		
+		if (!result.hasErrors()) {
+			bookDao.update(id, book);
+		} else {
+			return "bookDetail";
+		}
 		return view;
 	}
 	

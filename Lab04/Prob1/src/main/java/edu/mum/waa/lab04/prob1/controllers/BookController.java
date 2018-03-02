@@ -39,9 +39,14 @@ public class BookController {
 	}
 	
 	@RequestMapping(value="/books/{id}", method=RequestMethod.POST)
-	public String update(@PathVariable("id") int id, Book book) {
-		bookDao.update(id, book);
-		return "redirect:/books";
+	public String update(@PathVariable("id") int id, @Valid Book book, BindingResult result) {
+		String view = "redirect:/books";
+		if (!result.hasErrors()) {
+			bookDao.update(id, book);
+		} else {
+			return "bookDetail";
+		}
+		return view;
 	}
 	
 	@RequestMapping(value="/books/delete", method=RequestMethod.POST)
