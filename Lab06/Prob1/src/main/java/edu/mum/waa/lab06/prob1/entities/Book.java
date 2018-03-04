@@ -1,4 +1,4 @@
-package edu.mum.waa.lab04.prob2.entities;
+package edu.mum.waa.lab06.prob1.entities;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
