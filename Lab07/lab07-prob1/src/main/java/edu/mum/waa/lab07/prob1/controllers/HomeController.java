@@ -9,7 +9,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home() {
-		return "/team/index";
+		return "/team/list";
 	}
 	
 }
