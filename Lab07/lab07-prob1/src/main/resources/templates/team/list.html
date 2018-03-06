@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Team</title>
+	<link style="text/css" th:href="@{/css/main.css}"  rel="stylesheet"/>
+</head>
+<body>
+	<div>
+		<div th:replace="fragments/menu :: menu"></div>
+		<div class="container">
+			<table>
+				<tr th:each="team: ${teams}">
+					<td th:text="${team.name}"></td>
+					<td th:text="${team.city}"></td>
+					<td th:text="${team.mascot}"></td>
+					<td th:text="${team.homeUniform}"></td>
+					<td th:text="${team.visitUniform}"></td>
+					<td><a th:href="@{/team/add(id=${team.teamKey})}">Edit</a> </td>
+					<td><a th:href="@{/team/delete(id=${team.teamKey})}">Delete</a> </td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

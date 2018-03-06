@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link style="text/css" th:href="@{/css/main.css}"  rel="stylesheet"/>
+<title>Add Team</title>
+</head>
+<body>
+<div>
+	<div th:replace="fragments/menu :: menu"></div>
+	<div class="container">
+		<form th:object="${team}" th:action="@{/team/add}" method="post">
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" th:field="*{name}"/></td>
+					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" th:field="*{city}"/></td>
+					<td th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></td>
+				</tr>
+				<tr>
+					<td>Mascot:</td>
+					<td><input type="text" th:field="*{mascot}"/></td>
+					<td th:if="${#fields.hasErrors('mascot')}" th:errors="*{mascot}"></td>
+				</tr>
+				<tr>
+					<td>Home Uniform:</td>
+					<td><input type="text" th:field="*{homeUniform}"/></td>
+					<td th:if="${#fields.hasErrors('homeUniform')}" th:errors="*{homeUniform}"></td>
+				</tr>
+				<tr>
+					<td>Visit Uniform:</td>
+					<td><input type="text" th:field="*{visitUniform}"/></td>
+					<td th:if="${#fields.hasErrors('visitUniform')}" th:errors="*{visitUniform}"></td>
+				</tr>
+			</table>
+			<input type="submit" value="Submit"/>
+		</form>
+	</div>
+</div>
+</body>
+</html>

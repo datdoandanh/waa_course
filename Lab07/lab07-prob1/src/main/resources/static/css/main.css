@@ -1,0 +1,13 @@
+body {
+	margin: 0;
+	box-sizing: border-box;
+}
+.menu {
+	width: 200px;
+	float: left;
+}
+
+.container {
+	margin-left: 200px;
+	padding-top: 15px;
+}

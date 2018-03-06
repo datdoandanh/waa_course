@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create a match</title>
+<link style="text/css" th:href="@{/css/main.css}"  rel="stylesheet"/>
+</head>
+<body>
+	<div>
+		<div th:replace="fragments/menu :: menu"></div>
+		<div class="container">
+			<form th:action="@{/match/create}" th:object="${match}" method="post">
+				<table>
+					<tr>
+						<td>Date:</td>
+						<td><input type="date" th:field="*{date}"/> </td>
+					</tr>
+					<tr>
+						<td>Start time:</td>
+						<td><input type="time" th:field="*{startTime}"/> </td>
+						<td th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></td>
+					</tr>
+					<tr>
+						<td>Stadium:</td>
+						<td>
+							<select th:field="*{stadiumKey}">
+								<option th:each="stadium: ${stadiums}" th:value="${stadium.stadiumKey}" th:text="${stadium.name}"></option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Home Team:</td>
+						<td>
+							<select th:field="*{homeTeamKey}">
+								<option th:each="team: ${teams}" th:value="${team.teamKey}" th:text="${team.name}"></option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Visitor Team:</td>
+						<td>
+							<select th:field="*{visitorTeamKey}">
+								<option th:each="team: ${teams}" th:value="${team.teamKey}" th:text="${team.name}"></option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="Create" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>
