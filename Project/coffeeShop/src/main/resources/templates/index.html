@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-lg-4" th:each="prod : ${products}">
 				<h2 th:text="${prod.productName}"></h2>
-				<h3>$<span th:text="${prod.price}"></span></h3>
+				<h4>$<span th:text="${prod.price}"></span></h4>
 				<p th:text="${prod.description}"></p>
 				<p>
 					<a class="btn btn-default" href="#" role="button">Add »</a>
