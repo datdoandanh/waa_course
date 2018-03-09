@@ -17,8 +17,8 @@ import edu.mum.coffee.domain.ProductType;
 import edu.mum.coffee.service.ProductService;
 
 @Controller
-@RequestMapping("/admin/product")
-public class ProductManagementController {
+@RequestMapping("/admin/user")
+public class UserManagementController {
 	
 	@Autowired
 	private ProductService service;
@@ -35,20 +35,20 @@ public class ProductManagementController {
 		if (id != null) {
 			model.addAttribute("product", service.getProduct(id));
 		}
-		return "/admin/product/create";
+		return "/admin/user/create";
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(Model model, @ModelAttribute("product") Product product) {
 		service.save(product);
-		return "redirect:/admin/product/";
+		return "redirect:/admin/user/";
 	}
 	
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
 	public String delete(@PathVariable("id") int id) {
 		Product product = service.getProduct(id);
 		service.delete(product);
-		return "redirect:/admin/product/";
+		return "redirect:/admin/user/";
 	}
 	
 	@ModelAttribute("productTypes")
