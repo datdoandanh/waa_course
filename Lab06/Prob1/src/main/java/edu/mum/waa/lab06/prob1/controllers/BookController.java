@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,8 +34,9 @@ public class BookController {
 	}
 	
 	@RequestMapping(value="/books/{id}", method=RequestMethod.GET)
-	public String get(@PathVariable("id") int id, Model model) {
+	public String get(@PathVariable("id") int id, Model model, ModelMap map) {
 		model.addAttribute("book", bookDao.get(id));
+		
 		return "bookDetail";
 	}
 	

@@ -14,6 +14,7 @@ public class Team {
 	private List<Match> matchesAsVisitor;
 	
 	public Team(String name, String city, String mascot, String homeUniform, String visitUniform) {
+		System.out.println("Custom Constructor");
 		this.name = name;
 		this.city = city;
 		this.mascot = mascot;
