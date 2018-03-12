@@ -87,6 +87,7 @@ public class MyAccountController {
 			person.setPassword(encoder.encode(person.getPassword()));
 		}
 		personService.savePerson(person);
+		model.addAttribute("infoMsg", "Your new account has been created sucessfully. Click here to login");
 		return view;
 	}
 	

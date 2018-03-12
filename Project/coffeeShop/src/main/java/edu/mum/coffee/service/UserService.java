@@ -25,7 +25,7 @@ public class UserService {
 		if (users.size() == 1) {
 			return users.get(0);
 		}
-		return new User();
+		return null;
 	}
 
 }

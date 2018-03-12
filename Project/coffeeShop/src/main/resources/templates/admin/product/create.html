@@ -42,8 +42,8 @@
 				    </div>
 				  </div>
 				  <input type="hidden" th:field="*{id}" />
-				  <input type="submit" class="btn btn-primary" value="Create" th:if="${param.id == null}"/>
-				  <input type="submit" class="btn btn-primary" value="Update" th:if="${param.id != null}"/>
+				  <input type="submit" class="btn btn-primary" value="Create" th:if="*{id} == 0"/>
+				  <input type="submit" class="btn btn-primary" value="Update" th:if="*{id} != 0"/>
 				 </form>
 			</div>
 		</div>
