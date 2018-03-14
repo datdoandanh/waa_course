@@ -18,8 +18,6 @@ public class SessionListener{
 	@Autowired
 	PersonService service;
 	
-	private String name = "Doan Danh Dat";
-	
 	@Autowired
 	HttpSession session;
 	
@@ -48,14 +46,6 @@ public class SessionListener{
         return userName;
     }
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 }
 
 
